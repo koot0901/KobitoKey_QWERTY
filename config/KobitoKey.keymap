@@ -33,6 +33,30 @@
         };
     };
 
+    macros {
+        macro9: macro9 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LALT &kp N9 &kp Y &kp N1>;
+        };
+        macro10: macro10 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LALT &kp N9 &kp Y &kp N2>;
+        };
+        macro11: macro11 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LALT &kp N9 &kp Y &kp N3>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -58,10 +82,10 @@
         layer2 {
             label = "FUNCTION";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp SLASH
-&trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK
-&trans        &trans        &trans        &trans        &trans          &trans   &kp NUMBER_0  &kp EQUAL     &trans        &kp PLUS
+&kp F1          &kp F2  &kp F3  &kp F4   &kp F5   &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp SLASH
+&kp F6          &kp F7  &kp F8  &kp F9   &kp F10  &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
+&kp LEFT_SHIFT  &trans  &trans  &kp F11  &kp F12  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK
+&trans          &trans  &trans  &trans   &trans   &trans  &kp NUMBER_0  &kp EQUAL     &trans        &kp PLUS
             >;
         };
 
@@ -78,10 +102,10 @@
         layer4 {
             label = "WORK1";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &macro9   &kp LA(N7)  &kp LA(N3)  &kp LA(N8)  &trans
+&trans        &trans        &trans        &trans        &bt BT_CLR      &macro10  &kp LA(N1)  &kp LA(N2)  &kp LA(N4)  &trans
+&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &macro11  &kp LA(N6)  &trans      &kp LA(N5)  &trans
+&trans        &trans        &trans        &trans        &trans          &trans    &trans      &trans      &trans      &trans
             >;
         };
 
