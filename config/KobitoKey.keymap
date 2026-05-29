@@ -41,6 +41,7 @@
             tap-ms = <30>;
             bindings = <&kp LALT &kp N9 &kp Y &kp N1>;
         };
+
         macro10: macro10 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -48,6 +49,7 @@
             tap-ms = <30>;
             bindings = <&kp LALT &kp N9 &kp Y &kp N2>;
         };
+
         macro11: macro11 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -62,17 +64,17 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R        &kp T            &kp Y       &kp U        &kp I      &kp O      &kp P
-&kp A             &kp S         &kp D         &kp F        &kp G            &kp H       &kp J        &kp K      &kp L      &kp SEMI
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B            &kp N       &kp M        &kp COMMA  &kp DOT    &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 2 LC(SPACE)  &kp K_BACK  &lt 1 ENTER  &lt 3 DEL  &kp RSHFT  &lt 2 ESC
+&kp Q             &kp W         &kp E           &kp R        &kp T            &kp Y       &kp U        &kp I      &kp O      &kp P
+&kp A             &kp S         &kp D           &kp F        &kp G            &kp H       &kp J        &kp K      &kp L      &kp SEMI
+&mt LEFT_SHIFT Z  &kp X         &kp C           &lt 4 V      &kp B            &kp N       &kp M        &kp COMMA  &kp DOT    &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &lt 5 LEFT_ALT  &lt 1 SPACE  &lt 2 LC(SPACE)  &kp K_BACK  &lt 1 ENTER  &lt 3 DEL  &kp RSHFT  &lt 2 ESC
             >;
         };
 
         layer1 {
             label = "NUMBER";
             bindings = <
-&trans          &kp LC(W)  &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp HOME
+&kp TAB         &kp LC(W)  &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp HOME
 &kp EQUAL       &trans     &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PAGE_DOWN    &kp LEFT      &kp DOWN  &kp RIGHT      &kp END
 &kp LEFT_SHIFT  &trans     &trans     &kp LEFT_BRACKET      &kp RIGHT_BRACKET  &kp LS(LC(TAB))  &mkp MB4      &mkp MB5  &kp LC(TAB)    &kp RIGHT_SHIFT
 &trans          &trans     &trans     &trans                &trans             &trans           &trans        &trans    &trans         &trans
@@ -112,10 +114,10 @@
         layer5 {
             label = "WORK2";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
