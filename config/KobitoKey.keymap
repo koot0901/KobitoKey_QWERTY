@@ -48,20 +48,20 @@
         layer1 {
             label = "NUMBER";
             bindings = <
-&kp N0     &kp N1  &kp N2  &kp N3     &trans  &kp MINUS  &trans     &kp UP    &trans     &trans
-&kp EQUAL  &kp N4  &kp N5  &kp N6     &trans  &kp PLUS   &kp LEFT   &kp DOWN  &kp RIGHT  &trans
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp ASTRK  &kp SLASH  &kp LBKT  &kp RBKT   &trans
-&trans     &trans  &trans  &kp LSHFT  &trans  &trans     &trans     &trans    &trans     &trans
+&trans          &kp LC(W)  &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp HOME
+&kp EQUAL       &trans     &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PAGE_DOWN    &kp LEFT      &kp DOWN  &kp RIGHT      &kp END
+&kp LEFT_SHIFT  &trans     &trans     &kp LEFT_BRACKET      &kp RIGHT_BRACKET  &kp LS(LC(TAB))  &mkp MB4      &mkp MB5  &kp LC(TAB)    &kp RIGHT_SHIFT
+&trans          &trans     &trans     &trans                &trans             &trans           &trans        &trans    &trans         &trans
             >;
         };
 
         layer2 {
             label = "FUNCTION";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp SLASH
+&trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
+&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK
+&trans        &trans        &trans        &trans        &trans          &trans   &kp NUMBER_0  &kp EQUAL     &trans        &kp PLUS
             >;
         };
 
