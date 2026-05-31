@@ -125,8 +125,8 @@
         layer3 {
             label = "MOUSE";
             bindings = <
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
+&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &trans
+&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &trans
 &kp LEFT_SHIFT  &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans    &kp RIGHT_SHIFT
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans  &trans    &trans    &trans    &trans
             >;
@@ -139,6 +139,16 @@
 &trans        &trans        &trans        &trans        &bt BT_CLR      &macro10  &kp LA(N1)  &kp LA(N2)  &kp LA(N4)  &trans
 &trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &macro11  &kp LA(N6)  &trans      &kp LA(N5)  &trans
 &trans        &trans        &trans        &trans        &trans          &trans    &trans      &trans      &trans      &trans
+            >;
+        };
+
+        scroll_layer {
+            label = "SCROLL";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
