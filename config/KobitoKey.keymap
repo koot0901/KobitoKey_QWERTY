@@ -125,8 +125,8 @@
         layer3 {
             label = "MOUSE";
             bindings = <
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &trans
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &trans
+&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
+&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
 &kp LEFT_SHIFT  &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans    &kp RIGHT_SHIFT
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans  &trans    &trans    &trans    &trans
             >;
