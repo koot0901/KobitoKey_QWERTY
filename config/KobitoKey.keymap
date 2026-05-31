@@ -90,17 +90,6 @@
         };
     };
 
-    // レイヤー入口(Space/Enter/Del/Tab長押し)は軽快に
-    &lt {
-        tapping-term-ms = <180>;
-        quick-tap-ms = <175>;
-    };
-
-    // Shift系mod-tap(Z/SLASH)の判定
-    &mt {
-        tapping-term-ms = <200>;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -153,4 +142,15 @@
             >;
         };
     };
+};
+
+// レイヤー入口(Space/Enter/Del/Tab長押し)は軽快に
+&lt {
+    tapping-term-ms = <180>;
+    quick-tap-ms = <175>;
+};
+
+// Shift系mod-tap(Z/SLASH)の判定
+&mt {
+    tapping-term-ms = <200>;
 };
