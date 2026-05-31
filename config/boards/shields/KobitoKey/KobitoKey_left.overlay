@@ -87,7 +87,7 @@
 
     input-processors =
         <&sensor_rotation_right>,
-        <&zip_temp_layer 3 900>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
+        <&zip_temp_layer 3 700>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
 };
 
 &zip_temp_layer {
