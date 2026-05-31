@@ -51,6 +51,54 @@
             tap-ms = <30>;
             bindings = <&kp LALT &kp N9 &kp Y &kp N3>;
         };
+
+        // Win+矢印スナップ。GUIの単独離しでスタートメニューが開くのを防ぐため、
+        // 待ち時間を挟んで矢印を確実にGUI押下中へ入れる。
+        win_left: win_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <15>;
+            tap-ms = <15>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LGUI>;
+        };
+
+        win_right: win_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <15>;
+            tap-ms = <15>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LGUI>;
+        };
+    };
+
+    behaviors {
+        // A=Ctrl 等のホームロウmod専用。誤ホールド対策を強めにする。
+        hrm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;  // 直前125ms内に別キー→必ずtap(誤爆防止)
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    // レイヤー入口(Space/Enter/Del/Tab長押し)は軽快に
+    &lt {
+        tapping-term-ms = <180>;
+        quick-tap-ms = <175>;
+    };
+
+    // Shift系mod-tap(Z/SLASH)の判定
+    &mt {
+        tapping-term-ms = <200>;
     };
 
     keymap {
@@ -59,7 +107,7 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R        &kp T          &kp Y          &kp U        &kp I      &kp O      &kp P
-&mt LCTRL A       &kp S         &kp D         &kp F        &kp G          &kp H          &kp J        &kp K      &kp L      &kp SEMI
+&hrm LCTRL A      &kp S         &kp D         &kp F        &kp G          &kp H          &kp J        &kp K      &kp L      &kp SEMI
 &mt LEFT_SHIFT Z  &kp X         &lt 4 C       &kp V        &kp B          &kp N          &kp M        &kp COMMA  &kp DOT    &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 2 DEL      &kp BACKSPACE  &lt 1 ENTER  &lt 2 TAB  &kp RSHFT  &kp ESC
             >;
@@ -68,8 +116,8 @@
         layer1 {
             label = "NUMBER";
             bindings = <
-&kp TAB         &kp LC(W)  &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp HOME
-&kp EQUAL       &trans     &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PAGE_DOWN    &kp LEFT      &kp DOWN  &kp RIGHT      &kp END
+&kp TAB           &kp LC(W)         &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &win_left  &kp UP    &win_right  &kp HOME
+&kp LC(LG(LEFT))  &kp LC(LG(RIGHT)) &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PAGE_DOWN    &kp LEFT   &kp DOWN  &kp RIGHT   &kp END
 &kp LEFT_SHIFT  &trans     &trans     &kp LEFT_BRACKET      &kp RIGHT_BRACKET  &kp LS(LC(TAB))  &mkp MB4      &mkp MB5  &kp LC(TAB)    &kp RIGHT_SHIFT
 &trans          &trans     &trans     &trans                &trans             &trans           &trans        &trans    &trans         &kp LS(LC(NUMBER_1))
             >;
