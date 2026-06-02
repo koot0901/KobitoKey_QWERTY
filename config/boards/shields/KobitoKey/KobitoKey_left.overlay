@@ -87,7 +87,7 @@
 
     input-processors =
         <&sensor_rotation_right>,
-        <&zip_temp_layer 3 700>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
+        <&zip_temp_layer 3 600>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
 
     /* L5(SCROLL)が有効な間だけ右ボールをスクロールに回す（QMKのKb7=SCRL_MO相当）
        左ボールのスクロール設定を踏襲: 横を殺して縦のみ・1/15に減速 */
@@ -101,14 +101,14 @@
     };
 
     /* L6(PRECISION)が有効な間だけ移動量を約40%に絞る低速(精密)モード。
-       MOUSEレイヤーの &tog 6 でON/OFF。倍率は <分子 分母>＝2/5。
+       FUNCTIONレイヤーの &tog 6 でON/OFF。倍率は <分子 分母>＝2/5。
        通常チェーン(回転＋オートマウスレイヤー)を引き継いだ上でscalerを追加。 */
     precision_mode {
         layers = <6>;
         input-processors =
             <&sensor_rotation_right>,
             <&zip_xy_scaler 2 5>,
-            <&zip_temp_layer 3 700>;
+            <&zip_temp_layer 3 600>;
     };
 };
 
