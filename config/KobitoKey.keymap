@@ -54,15 +54,19 @@
 
         // Win+矢印スナップ。GUIの単独離しでスタートメニューが開くのを防ぐため、
         // 待ち時間を挟んで矢印を確実にGUI押下中へ入れる。
+
         win_left: win_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <15>;
             tap-ms = <15>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp LEFT>
-                , <&macro_release &kp LGUI>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LGUI>;
         };
 
         win_right: win_right {
@@ -70,15 +74,19 @@
             #binding-cells = <0>;
             wait-ms = <15>;
             tap-ms = <15>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp RIGHT>
-                , <&macro_release &kp LGUI>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LGUI>;
         };
     };
 
     behaviors {
         // A=Ctrl 等のホームロウmod専用。誤ホールド対策を強めにする。
+
         hrm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -95,20 +103,20 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R        &kp T          &kp Y          &kp U        &kp I      &kp O      &kp P
-&hrm LCTRL A      &kp S         &kp D         &kp F        &kp G          &kp H          &kp J        &kp K      &kp L      &kp SEMI
-&mt LEFT_SHIFT Z  &kp X         &lt 4 C       &kp V        &kp B          &kp N          &kp M        &kp COMMA  &kp DOT    &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 2 DEL      &kp BACKSPACE  &lt 1 ENTER  &lt 2 TAB  &kp RSHFT  &kp ESC
+&kp Q             &kp W         &kp E         &kp R        &kp T      &kp Y          &kp U        &kp I      &kp O      &kp P
+&hrm LCTRL A      &kp S         &kp D         &kp F        &kp G      &kp H          &kp J        &kp K      &kp L      &kp SEMI
+&mt LEFT_SHIFT Z  &kp X         &lt 4 C       &kp V        &kp B      &kp N          &kp M        &kp COMMA  &kp DOT    &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 2 DEL  &kp BACKSPACE  &lt 1 ENTER  &lt 2 TAB  &kp RSHFT  &kp ESC
             >;
         };
 
         layer1 {
             label = "NUMBER";
             bindings = <
-&kp TAB           &kp LC(W)         &kp MINUS  &kp EQUAL             &kp SQT            &kp PAGE_UP      &win_left  &kp UP    &win_right  &kp HOME
-&kp LC(LG(LEFT))  &kp LC(LG(RIGHT)) &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PAGE_DOWN    &kp LEFT   &kp DOWN  &kp RIGHT   &kp END
-&kp LEFT_SHIFT  &trans     &trans     &kp LEFT_BRACKET      &kp RIGHT_BRACKET  &kp LS(LC(TAB))  &mkp MB4      &mkp MB5  &kp LC(TAB)    &kp RIGHT_SHIFT
-&trans          &trans     &trans     &trans                &trans             &trans           &trans        &trans    &trans         &kp LS(LC(NUMBER_1))
+&kp TAB           &kp LC(W)          &kp MINUS  &kp EQUAL             &kp SQT                &kp PAGE_UP      &win_left  &kp UP    &win_right   &kp HOME
+&kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PAGE_DOWN    &kp LEFT   &kp DOWN  &kp RIGHT    &kp END
+&kp LEFT_SHIFT    &trans             &trans     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LS(LC(TAB))  &mkp MB4   &mkp MB5  &kp LC(TAB)  &kp RIGHT_SHIFT
+&trans            &trans             &trans     &trans                &trans                 &trans           &trans     &trans    &trans       &kp LS(LC(NUMBER_1))
             >;
         };
 
@@ -125,10 +133,10 @@
         layer3 {
             label = "MOUSE";
             bindings = <
-&trans          &trans        &trans        &trans  &trans  &tog 6  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
-&kp LEFT_SHIFT  &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans    &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans  &trans    &trans    &trans    &trans
+&trans          &trans        &trans        &trans  &trans  &tog 6  &mkp MB1  &mo 5   &mkp MB2  &mkp MB3
+&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5   &mkp MB2  &mkp MB3
+&kp LEFT_SHIFT  &trans        &trans        &trans  &trans  &trans  &trans    &trans  &trans    &kp RIGHT_SHIFT
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans  &trans    &trans  &trans    &trans
             >;
         };
 
@@ -154,6 +162,7 @@
 
         // 右トラボ低速(精密)モード。全キーtransで通常入力に影響なし。
         // このレイヤーがONの間、右リスナー側でzip_xy_scalerが効く。
+
         precision_layer {
             label = "PRECISION";
             bindings = <
@@ -167,6 +176,7 @@
 };
 
 // レイヤー入口(Space/Enter/Del/Tab長押し)は軽快に
+
 &lt {
     tapping-term-ms = <180>;
     quick-tap-ms = <175>;
@@ -175,6 +185,7 @@
 // Shift系mod-tap(Z/SLASH)の判定
 // flavor未指定=hold-preferredだと「ZE」等のロール入力で即Shift判定され
 // 大文字になってしまうため、balancedに変更（離す順番でtap/hold判定）。
+
 &mt {
     flavor = "balanced";
     tapping-term-ms = <200>;
