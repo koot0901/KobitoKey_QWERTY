@@ -125,7 +125,7 @@
         layer3 {
             label = "MOUSE";
             bindings = <
-&trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
+&trans          &trans        &trans        &trans  &trans  &tog 6  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
 &trans          &trans        &trans        &trans  &trans  &trans  &mkp MB1  &mo 5  &mkp MB2  &mkp MB3
 &kp LEFT_SHIFT  &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans    &kp RIGHT_SHIFT
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans  &trans    &trans    &trans    &trans
@@ -151,6 +151,18 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
+
+        // 右トラボ低速(精密)モード。全キーtransで通常入力に影響なし。
+        // このレイヤーがONの間、右リスナー側でzip_xy_scalerが効く。
+        precision_layer {
+            label = "PRECISION";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
     };
 };
 
@@ -161,6 +173,11 @@
 };
 
 // Shift系mod-tap(Z/SLASH)の判定
+// flavor未指定=hold-preferredだと「ZE」等のロール入力で即Shift判定され
+// 大文字になってしまうため、balancedに変更（離す順番でtap/hold判定）。
 &mt {
+    flavor = "balanced";
     tapping-term-ms = <200>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <125>;  // 直前125ms内に別キー→必ずtap(誤爆防止)
 };
